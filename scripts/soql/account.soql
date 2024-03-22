@@ -1,0 +1,19 @@
+// Use .soql files to store SOQL queries.
+// You can execute queries in VS Code by selecting the
+//     query text and running the command:
+//     SFDX: Execute SOQL Query with Currently Selected Text
+
+//SELECT ContactId__c, Fiscal_Year__c, SUM(Salary__c) totalSalary
+     //   FROM Salary__c
+    //    WHERE ContactId__c = '003GA000043LG28YAG' AND Fiscal_Year__c = '2025 - 2026'
+    //    GROUP BY ContactId__c, Fiscal_Year__c
+
+        
+    //    SELECT ContactId__c, Fiscal_Year__c, SUM(Salary__c) salarypaidtilldate, SUM(Tax__C) taxpaidtilldate
+    //    FROM Salary__c
+    //    WHERE ContactId__c = '003GA000043LG28YAG' AND Fiscal_Year__c = '2023- 2024'
+     //   GROUP BY ContactId__c, Fiscal_Year__c
+//
+   //     Select Id from Salary__c WHERE Fiscal_year__c = '2023- 2024'
+
+   Select Id, MailingPostalCode, MailingCity, MailingCountry, MailingLatitude, MailingLongitude, MailingState from Contact

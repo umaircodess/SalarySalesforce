@@ -1,0 +1,14 @@
+<template>
+        <lightning-card>
+            <lightning-input 
+              type="text"
+              label="Message"
+              onchange={sendmessage}
+            ></lightning-input>
+        <lightning-button 
+          variant="base"
+          label="Send" 
+          onclick={handleClick} 
+        ></lightning-button>
+    </lightning-card>
+</template>

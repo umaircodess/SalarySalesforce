@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Card" variant="base">
+        <div  style="background-color: white;">
+            <lightning-combobox label="Salaries" name="Salary ComboBox" options={options} onchange={handleChange}
+                placeholder="Select Salary"></lightning-combobox>
+        </div>
+        <div style="background-color: white;">
+            <lightning-datatable key-field="Id" data={data} columns={columns} min-column-width=100px onrowaction={rowaction} oncellchange={cellaction}></lightning-datatable>
+        </div>
+    </lightning-card>
+</template>
