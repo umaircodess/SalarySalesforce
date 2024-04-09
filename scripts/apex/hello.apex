@@ -85,8 +85,7 @@ System.debug(currentSObjectResult);
     objectAPINameToLabelMap.put(currentSObjectResult.getName(), currentSObjectResult.getLabel());
 }
 
-// Returning the map
-
-
+Map<Object, Object> m = new Map<Object, Object>{'003GA000043LG28YAG' => 1};
+System.debug(m);
 
   

@@ -1,0 +1,14 @@
+<!-- salaryProcessing.html -->
+<template>
+    <lightning-card title="Salary Processing">
+        <div class="slds-m-around_medium">
+            <template for:each={contacts} for:item="contact">
+                <div key={contact.Id}>
+                    <p>{contact.Name}</p>
+                    <lightning-input type="number" label="Salary Amount" onchange={handleChange} data-id={contact.Id}></lightning-input>
+                </div>
+            </template>
+            <lightning-button label="Save Salaries" onclick={saveSalaries}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
