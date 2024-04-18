@@ -1,6 +1,6 @@
 // List<Salary__c> sal1 = [Select Id from Salary__c];
 
- //delete [Select Id from Salary__c];
+ delete [Select Id from Salary__c];
 
 
 // //Salary__c sal1 = new Salary__c ();
@@ -88,4 +88,5 @@ System.debug(currentSObjectResult);
 Map<Object, Object> m = new Map<Object, Object>{'003GA000043LG28YAG' => 1};
 System.debug(m);
 
-  
+String json = '[{"contactId":"003GA000045VNYOYA4","amount":"1","month":"January","fiscalyear":"2024- 2025"},{"contactId":"003GA000043LG28YAG","amount":"1","month":"January","fiscalyear":"2024- 2025"}]';
+System.debug(SalaryJSON.parse(json));

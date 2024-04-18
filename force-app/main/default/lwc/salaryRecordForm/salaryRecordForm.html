@@ -1,0 +1,32 @@
+<template>
+    <lightning-card icon-name="standard:account" variant="base">
+        <div slot="title">
+            Add Multiple Salaries at Once
+        </div>
+        <div>
+            <template for:each={rows} for:item="row">
+                <lightning-record-edit-form key={row.id} object-api-name="Salary__c">
+                    <div class="slds-grid slds-gutters">
+                        <template for:each={fields} for:item="field">
+                            <div key={field} class="slds-col">
+                                <lightning-input-field field-name={field}></lightning-input-field>
+                            </div>
+                        </template>
+                        <div class="slds-col slds-align-middle">
+                            <lightning-icon icon-name="utility:add" alternative-text="Add another" size="xx-large"
+                                title="Add another" variant="success" onclick={addform}></lightning-icon>
+                            <lightning-icon icon-name="utility:delete" alternative-text={row.id} size="xx-large"
+                                title={row.id} variant="error" onclick={removeform}
+                                data-index={row.id}></lightning-icon>
+                        </div>
+                    </div>
+                </lightning-record-edit-form>
+            </template>
+        </div>
+        <div slot="footer">
+            <div class="slds-text-align_center slds-m-top_medium">
+                <lightning-button type="submit" label="Submit" onclick={savesalaries}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>
