@@ -3,6 +3,10 @@
         <div slot="title">
             Add Multiple Salaries at Once
         </div>
+        <div slot="actions">
+            <lightning-icon icon-name="utility:new" alternative-text="Add another row" size="xx-large"
+                title="Add another row" variant="success" onclick={addform}></lightning-icon>
+        </div>
         <div>
             <template for:each={rows} for:item="row">
                 <lightning-record-edit-form key={row.id} object-api-name="Salary__c">
@@ -13,10 +17,9 @@
                             </div>
                         </template>
                         <div class="slds-col slds-align-middle">
-                            <lightning-icon icon-name="utility:add" alternative-text="Add another" size="xx-large"
-                                title="Add another" variant="success" onclick={addform}></lightning-icon>
-                            <lightning-icon icon-name="utility:delete" alternative-text={row.id} size="xx-large"
-                                title={row.id} variant="error" onclick={removeform}
+
+                            <lightning-icon icon-name="utility:delete" alternative-text="Delete row" size="xx-large"
+                                title="Delete row" variant="error" onclick={removeform}
                                 data-index={row.id}></lightning-icon>
                         </div>
                     </div>
