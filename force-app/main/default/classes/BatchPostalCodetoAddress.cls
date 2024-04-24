@@ -32,8 +32,6 @@ public class BatchPostalCodetoAddress implements Database.Batchable<sObject>,  D
                 eachcontact.MailingLatitude= responsemap.get(eachcontact.MailingPostalCode).lat;
                 eachcontact.MailingLongitude= responsemap.get(eachcontact.MailingPostalCode).lng;
             }
-            
-
            }
 
            update listofcontacts;

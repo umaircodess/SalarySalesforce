@@ -1,0 +1,17 @@
+<template>
+    <div class="modal">
+        <div class="modal-body">
+            <div class="modal-header">
+                <h1>{recordId}</h1>
+            </div>
+            <div class="modal-content">
+                <lightning-record-form columns="3" layout-type="Full" object-api-name={objApiName}
+                    record-id={recordId}></lightning-record-form>
+            </div>
+            <div class="modal-footer">
+                <button onclick={handleOkay}>Close Dialogue</button>
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</template>

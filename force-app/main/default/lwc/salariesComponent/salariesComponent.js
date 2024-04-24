@@ -1,6 +1,6 @@
 import { LightningElement, track } from 'lwc';
 import getContacts from '@salesforce/apex/ContactController.getContacts';
-import processSalaries from '@salesforce/apex/ContactController.processSalaries';
+import processSalaries from '@salesforce/apex/SalaryController.processSalaries';
 
 export default class SalariesComponent extends LightningElement {
     @track contacts;

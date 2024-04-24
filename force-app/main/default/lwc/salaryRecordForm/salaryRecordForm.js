@@ -4,16 +4,24 @@ import { NavigationMixin } from 'lightning/navigation';
 import insertSalary from '@salesforce/apex/SalaryController.insertSalary';
 export default class SalaryRecordForm extends NavigationMixin(LightningElement) {
     fields = ['ContactId__c', 'Month__c', 'Salary__c', 'Fiscal_year__c'];
-    IndexOfRow = 0;
+    errorMessages = [];
+    IndexOfRow = 1;
     @track rows = [
         {
-            id: 0
+            id: 1
         }
     ];
     removeform(event) {
         if (this.rows.length > 1) {
-            let indexOfRow = event.target.dataset.index;
-            this.rows = this.rows.filter((item) => item.id !== parseInt(indexOfRow));
+            let row_to_delete = event.target.dataset.row;
+            this.rows = this.rows.filter((item) => item.id !== parseInt(row_to_delete, 10));
+            this.IndexOfRow = this.IndexOfRow - 1;
+            this.rows.forEach((item) => {     
+                if(item.id > row_to_delete) {
+                    item.id = item.id - 1;
+                }
+            });
+   
         }
     }
     addform() {
@@ -47,14 +55,18 @@ export default class SalaryRecordForm extends NavigationMixin(LightningElement) 
                     actionName: 'list'
                 }
             });
-        }).catch((error) => {
-            this.dispatchEvent(
-                new ShowToastEvent({
-                    title: 'Error',
-                    message: 'Error in adding salary: ' + JSON.stringify(error),
-                    variant: 'error'
-                })
-            );
+        }).catch((err) => {
+            this.errorMessages.push(err.body.message);
+            if (this.errorMessages.length > 0) {
+                this.dispatchEvent(
+                    new ShowToastEvent({
+                        title: 'Error',
+                        message: 'Errors in Record no. :  ' + this.errorMessages.join(', '),
+                        variant: 'error'
+                    })
+                );
+            }
+            this.errorMessages.length = 0;
         });
     }
 }

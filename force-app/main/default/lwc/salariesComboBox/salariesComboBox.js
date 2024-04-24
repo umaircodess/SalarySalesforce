@@ -1,5 +1,5 @@
 import { LightningElement, track } from 'lwc';
-import getSalaries from '@salesforce/apex/returnSalaries.getSalaries';
+import getSalaries from '@salesforce/apex/SalaryController.getSalaries';
 export default class SalariesComboBox extends LightningElement {
     columns = [
         { label: 'Salary Id', fieldName: 'Id' },
@@ -9,34 +9,26 @@ export default class SalariesComboBox extends LightningElement {
         { label: 'Month', fieldName: 'Month__c' },
         { label: 'Fiscal Year', fieldName: 'Fiscal_year__c' },
         {
-            label: 'Salary', type: 'combobox',
-            options: [
-            { label: 'Salary 1', value: 10 },
-            { label: 'Salary 2', value: 20 },
-            { label: 'Salary 3', value: 30 },
-            ]
+            label: "Button",
+            type: "button",
+            typeAttributes: {
+                label: "View Details",
+            }
         },
         {
             label: "Action",
-            type: "button",
+            type: "action",
             typeAttributes: {
-                label: "Inner Label",
+                rowActions:[
+                    { label: "Another Label", name: "rowaction" },
+                    { label: " Label 2", name: "else" },
+                ]
+                
             }
         },
-        // ,{
-        //     label: "abc",
-        //     type: "action",
-        //     typeAttributes: {
-        //         rowActions:[
-        //             { label: "Another Label", name: "rowaction" },
-        //             { label: " Label 2", name: "else" },
-        //         ]
-                
-        //     }
-        // }
     ];
     rowaction(event) {
-    console.log('row action'+ event.detail);
+    console.log('row action'+ event.detail.action.name);
     }
     cellaction(event) {
             console.log('cell action' + event.detail);
