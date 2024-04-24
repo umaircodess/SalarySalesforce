@@ -1,7 +1,6 @@
 public with sharing class SalaryTaxCalculator {
     
     public static void CalculatePayableSalary(List<Salary__c> salary) {
-
         
         Decimal taxablesalary, yearlytax, monthlytax ,SalarytobePaid, yearlysalary , totalprevioussalary = 0.00, totalprevioustax = 0.00;
         

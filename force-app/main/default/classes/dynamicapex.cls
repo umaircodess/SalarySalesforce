@@ -1,5 +1,4 @@
 public with sharing class dynamicapex {
-  
   @AuraEnabled
   public static List<EntityDefinition> getAllObjects() {
     try {
@@ -13,8 +12,6 @@ public with sharing class dynamicapex {
       throw new AuraHandledException(e.getMessage());
     }
   }
-
-
   @AuraEnabled
   public static List<sObject> retrieveRecords(String objectType) {
     List<String> fieldslist = new List<String>();
@@ -29,8 +26,6 @@ public with sharing class dynamicapex {
     System.debug(query);
     return Database.query(query);
   }
-
-
   @AuraEnabled
   public static List<sObject> getSObjectTypeById(Id recordId) {
     Schema.SObjectType objectType = recordId.getSObjectType();
