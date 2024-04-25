@@ -48,16 +48,22 @@ export default class SalaryRecordForm extends NavigationMixin(LightningElement) 
                     variant: 'success'
                 })
             );
+            // this[NavigationMixin.Navigate]({
+            //     type: 'standard__objectPage',
+            //     attributes: {
+            //         objectApiName: 'Salary__c',
+            //         actionName: 'home'
+            //     }
+            // });
             this[NavigationMixin.Navigate]({
-                type: 'standard__objectPage',
+                type: 'standard__webPage',
                 attributes: {
-                    objectApiName: 'Salary__c',
-                    actionName: 'list'
+                    url: '/lightning/n/Datatable_component'
                 }
             });
         }).catch((err) => {
             this.errorMessages.push(err.body.message);
-            if (this.errorMessages.length > 0) {
+            if (this.errorMessages.length > 0) { 
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Error',
